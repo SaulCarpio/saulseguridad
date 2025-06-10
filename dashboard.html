@@ -238,6 +238,23 @@
     }
   </style>
 </head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.createElement('canvas');
+  document.querySelector('.chart-placeholder').replaceWith(ctx);
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+      datasets: [{
+        label: 'Ventas 2023',
+        data: [1200, 1900, 1500, 2000, 1800, 2200],
+        borderColor: '#4361ee',
+        tension: 0.1
+      }]
+    }
+  });
+</script>
 <body>
   <!-- Sidebar -->
   <div class="sidebar">
