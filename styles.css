@@ -1,76 +1,39 @@
-/* Tipografía y colores base */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
-
-:root {
-  --primary: #4f46e5;   /* Indigo-600 */
-  --primary-dark: #4338ca; /* Indigo-700 */
-  --danger: #ef4444;    /* Red-500 */
-  --bg: #f9fafb;        /* Gray-50 */
-}
-
-/* Reset rápido */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  font-family: "Poppins", sans-serif;
-  background-color: var(--bg);
-  color: #111827; /* Gray-900 */
-  min-height: 100vh;
+  font-family: Arial, sans-serif;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: #f4f4f9;
 }
 
-.container {
+.login-container {
+  background: white;
+  padding: 20px 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
-  padding: 2.5rem 3rem;
-  border-radius: 1.5rem;
-  background: #ffffff;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
 }
 
-h1 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
-.counter {
-  font-size: 4rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
-}
-
-.btn {
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 0.9rem 2.2rem;
-  margin: 0 0.4rem;
+button {
+  width: 100%;
+  padding: 10px;
+  background: #007BFF;
+  color: white;
   border: none;
-  border-radius: 0.75rem;
-  color: #fff;
-  background: var(--primary);
-  transition: transform 0.1s ease, background 0.2s ease;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.btn:hover {
-  background: var(--primary-dark);
-}
-
-.btn:active {
-  transform: scale(0.97);
-}
-
-.reset {
-  background: var(--danger);
-}
-
-.reset:hover {
-  background: #b91c1c; /* Red-700 */
+button:hover {
+  background: #0056b3;
 }

@@ -1,35 +1,14 @@
-// Recupera el valor almacenado o arranca en 0
-let count = Number(localStorage.getItem("click-count")) || 0;
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Evita que el formulario se envíe
 
-// Elementos del DOM
-const counter = document.getElementById("counter");
-const btnClick = document.getElementById("btn-click");
-const btnReset = document.getElementById("btn-reset");
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+  const errorMessage = document.getElementById("error-message");
 
-// Muestra el valor actual
-updateDisplay();
-
-/**
- * Incrementa el contador, actualiza la vista y guarda en localStorage
- */
-btnClick.addEventListener("click", () => {
-  count++;
-  updateDisplay();
-  localStorage.setItem("click-count", count);
+  // Credenciales válidas (usuario: admin, contraseña: admin123)
+  if (username === "admin" && password === "admin123") {
+    window.location.href = "dashboard.html"; // Redirige al dashboard
+  } else {
+    errorMessage.textContent = "Usuario o contraseña incorrectos.";
+  }
 });
-
-/**
- * Reinicia el contador
- */
-btnReset.addEventListener("click", () => {
-  count = 0;
-  updateDisplay();
-  localStorage.removeItem("click-count");
-});
-
-/**
- * Refresca el número mostrado en pantalla
- */
-function updateDisplay() {
-  counter.textContent = count;
-}
