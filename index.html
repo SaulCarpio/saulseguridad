@@ -1,21 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COTIZADOR - Teja Colonial</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="login-container">
-    <h1>Iniciar Sesión</h1>
-    <form id="loginForm">
-      <input type="text" id="username" placeholder="Usuario" required>
-      <input type="password" id="password" placeholder="Contraseña" required>
-      <button type="submit">Ingresar</button>
-    </form>
-    <p id="error-message" style="color: red;"></p>
-  </div>
-  <script src="script.js"></script>
+    <div class="container">
+        <h1>COTIZADOR</h1>
+        
+        <div class="header-info">
+            <div>
+                <strong>CLIENTE:</strong> 
+                <input type="text" id="cliente">
+            </div>
+            <div>
+                <strong>PRODUCTO:</strong> 
+                <input type="text" id="producto" value="TEJA COLONIAL">
+            </div>
+            <div>
+                <strong>FECHA:</strong> 
+                <input type="date" id="fecha">
+            </div>
+        </div>
+        
+        <table id="cotizacion-table">
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>CANTIDAD</th>
+                    <th>LONGITUD</th>
+                    <th>TOTAL MTS</th>
+                    <th>ACCIÓN</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <!-- Las filas se agregarán aquí dinámicamente -->
+            </tbody>
+            <tfoot>
+                <tr class="total-row">
+                    <td colspan="3"><strong>TOTALES MTS.</strong></td>
+                    <td id="total-mts">0,00</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+        
+        <div class="buttons">
+            <button id="add-row">Agregar Fila</button>
+            <button id="print-btn">Imprimir Cotización</button>
+            <button id="clear-btn" class="delete-btn">Limpiar Todo</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
