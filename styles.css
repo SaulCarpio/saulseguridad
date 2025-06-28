@@ -1,119 +1,224 @@
+:root {
+    --primary: #2c3e50;
+    --secondary: #3498db;
+    --accent: #e74c3c;
+    --light: #ecf0f1;
+    --dark: #2c3e50;
+    --success: #27ae60;
+    --warning: #f39c12;
+    --danger: #e74c3c;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    background-color: #f5f7fa;
+    padding: 15px;
+    font-size: 16px;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
     background: white;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 
 h1 {
     text-align: center;
-    color: #333;
-    margin-bottom: 30px;
-    font-size: 24px;
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--light);
 }
 
 .header-info {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 15px;
     margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ddd;
 }
 
-.header-info div {
-    flex: 1;
+.info-group {
+    display: flex;
+    flex-direction: column;
 }
 
-.header-info input {
-    border: none;
-    border-bottom: 1px solid #ddd;
-    width: 70%;
-    padding: 5px;
-    margin-left: 5px;
+label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: var(--primary);
 }
 
-.header-info input[type="date"] {
-    width: auto;
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 20px;
+    -webkit-overflow-scrolling: touch;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
+    min-width: 600px; /* Forzar scroll horizontal en móviles */
 }
 
 th, td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 12px 8px;
     text-align: center;
+    font-size: 0.9rem;
 }
 
 th {
-    background-color: #f2f2f2;
-    font-weight: bold;
+    background-color: var(--light);
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+}
+
+.action-col {
+    width: 40px;
 }
 
 .total-row {
     font-weight: bold;
-    background-color: #f2f2f2;
+    background-color: var(--light);
 }
 
-.input-row {
-    background-color: #f9f9f9;
+.total-row td {
+    padding: 12px;
 }
 
 .input-row input {
     width: 90%;
-    padding: 5px;
-    border: 1px solid #ddd;
+    padding: 8px;
+    border: 1px solid #eee;
     text-align: center;
+    font-size: 0.9rem;
 }
 
 .buttons {
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 button {
-    padding: 8px 15px;
-    background-color: #4CAF50;
-    color: white;
+    flex: 1;
+    min-width: 120px;
+    padding: 12px;
     border: none;
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    font-weight: 600;
     cursor: pointer;
-    border-radius: 4px;
-    font-size: 14px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.btn-primary {
+    background-color: var(--secondary);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: var(--light);
+    color: var(--dark);
+}
+
+.btn-danger {
+    background-color: var(--danger);
+    color: white;
 }
 
 button:hover {
-    background-color: #45a049;
+    transform: translateY(-2px);
 }
 
-.delete-btn {
-    background-color: #f44336;
+.icon {
+    font-size: 1.1rem;
 }
 
-.delete-btn:hover {
-    background-color: #d32f2f;
+@media (min-width: 768px) {
+    .header-info {
+        flex-direction: row;
+    }
+    
+    .info-group {
+        flex: 1;
+    }
+    
+    body {
+        padding: 20px;
+        font-size: 18px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    table {
+        min-width: 100%;
+    }
+    
+    th, td {
+        padding: 15px 10px;
+    }
 }
 
 @media print {
+    body {
+        padding: 0;
+        font-size: 14px;
+    }
+    
+    .container {
+        box-shadow: none;
+    }
+    
     button {
         display: none;
     }
-    body {
-        background: none;
-        padding: 0;
+    
+    .table-container {
+        overflow-x: visible;
     }
-    .container {
-        box-shadow: none;
-        padding: 0;
+    
+    table {
+        min-width: 100%;
     }
 }

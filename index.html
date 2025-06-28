@@ -3,54 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COTIZADOR - Teja Colonial</title>
+    <title>COTIZADOR - MEGACERO S.R.L.</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>COTIZADOR</h1>
+        <h1>COTIZADOR - MEGACERO S.R.L.</h1>
         
         <div class="header-info">
-            <div>
-                <strong>CLIENTE:</strong> 
-                <input type="text" id="cliente">
+            <div class="info-group">
+                <label for="cliente">CLIENTE:</label>
+                <input type="text" id="cliente" placeholder="Nombre del cliente">
             </div>
-            <div>
-                <strong>PRODUCTO:</strong> 
-                <input type="text" id="producto" value="TEJA COLONIAL">
+            <div class="info-group">
+                <label for="producto">PRODUCTO:</label>
+                <select id="producto">
+                    <option value="TEJA COLONIAL">Teja Colonial</option>
+                    <option value="TEJA AMERICANA">Teja Americana</option>
+                    <option value="ONDULADO">Ondulado</option>
+                    <option value="TRAPEZOIDAL">Trapezoidal</option>
+                </select>
             </div>
-            <div>
-                <strong>FECHA:</strong> 
+            <div class="info-group">
+                <label for="fecha">FECHA:</label>
                 <input type="date" id="fecha">
             </div>
         </div>
         
-        <table id="cotizacion-table">
-            <thead>
-                <tr>
-                    <th>N°</th>
-                    <th>CANTIDAD</th>
-                    <th>LONGITUD</th>
-                    <th>TOTAL MTS</th>
-                    <th>ACCIÓN</th>
-                </tr>
-            </thead>
-            <tbody id="table-body">
-                <!-- Las filas se agregarán aquí dinámicamente -->
-            </tbody>
-            <tfoot>
-                <tr class="total-row">
-                    <td colspan="3"><strong>TOTALES MTS.</strong></td>
-                    <td id="total-mts">0,00</td>
-                    <td></td>
-                </tr>
-            </tfoot>
-        </table>
+        <div class="table-container">
+            <table id="cotizacion-table">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>CANT</th>
+                        <th>LONG</th>
+                        <th>TOTAL</th>
+                        <th class="action-col">✕</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- Las filas se agregarán aquí dinámicamente -->
+                </tbody>
+                <tfoot>
+                    <tr class="total-row">
+                        <td colspan="3"><strong>TOTAL MTS.</strong></td>
+                        <td id="total-mts">0,00</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
         
         <div class="buttons">
-            <button id="add-row">Agregar Fila</button>
-            <button id="print-btn">Imprimir Cotización</button>
-            <button id="clear-btn" class="delete-btn">Limpiar Todo</button>
+            <button id="add-row" class="btn-primary">
+                <span class="icon">+</span> Agregar
+            </button>
+            <button id="print-btn" class="btn-secondary">
+                <span class="icon">🖨️</span> Imprimir
+            </button>
+            <button id="clear-btn" class="btn-danger">
+                <span class="icon">🗑️</span> Limpiar
+            </button>
         </div>
     </div>
 
